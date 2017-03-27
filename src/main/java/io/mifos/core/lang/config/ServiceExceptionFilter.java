@@ -43,6 +43,7 @@ final class ServiceExceptionFilter extends OncePerRequestFilter {
       if (ex.getCause().getClass().isAssignableFrom(ServiceException.class)) {
         @SuppressWarnings("ThrowableResultOfMethodCallIgnored") final ServiceException serviceException = ServiceException.class.cast(ex.getCause());
         final ServiceError serviceError = serviceException.serviceError();
+        logger.info("Responding with a service error " + serviceError);
         response.sendError(serviceError.getCode(), serviceError.getMessage());
       } else {
         throw ex;

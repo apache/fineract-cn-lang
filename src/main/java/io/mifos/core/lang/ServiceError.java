@@ -58,4 +58,12 @@ public final class ServiceError {
       return new ServiceError(this.code, this.message);
     }
   }
+
+  @Override
+  public String toString() {
+    return "ServiceError{" +
+            "code=" + code +
+            ", message='" + message + '\'' +
+            '}';
+  }
 }
