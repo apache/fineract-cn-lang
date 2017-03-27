@@ -56,6 +56,10 @@ dependencies {
     )
 }
 
+jar {
+    from sourceSets.main.allSource
+}
+
 publishing {
     publications {
         langPublication(MavenPublication) {
