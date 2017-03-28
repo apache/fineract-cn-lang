@@ -59,4 +59,11 @@ public final class ServiceException extends RuntimeException {
   public ServiceError serviceError() {
     return this.serviceError;
   }
+
+  @Override
+  public String toString() {
+    return "ServiceException{" +
+            "serviceError=" + serviceError +
+            '}';
+  }
 }
