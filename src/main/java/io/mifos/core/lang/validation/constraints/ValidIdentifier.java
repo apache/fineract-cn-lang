@@ -32,6 +32,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  *
  * @author Myrle Krantz
  */
+@SuppressWarnings("unused")
 @Target({ FIELD, METHOD, PARAMETER})
 @Retention(RUNTIME)
 @Documented
