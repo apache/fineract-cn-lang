@@ -41,6 +41,10 @@ public class ApplicationName {
   }
 
   static ApplicationName parse(final String springApplicationNameString) {
+    if (springApplicationNameString.length() > 64) {
+      throw new IllegalArgumentException("Spring application name strings for mifos io applications should be 64 characters or less.");
+    }
+
     final Pattern applicationNamePattern = Pattern.compile(
         "^(/??(?<name>\\p{Lower}[\\p{Lower}_]+)(?:-v(?<version>\\d[\\d\\._]*))?)$");
 

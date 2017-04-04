@@ -44,6 +44,19 @@ public class ValidApplicationNameTest {
   }
 
   @Test
+  public void tooLongAppplicationName()
+  {
+    final StringBuilder stringBuilder = new StringBuilder();
+    for (int i = 0; i < 65 -3; i++) {
+      stringBuilder.append("b");
+    }
+    stringBuilder.append("-v1");
+
+    final AnnotatedClass annotatedInstance = new AnnotatedClass(stringBuilder.toString());
+    Assert.assertFalse(isValid(annotatedInstance));
+  }
+
+  @Test
   public void nullAppplicationName()
   {
     final AnnotatedClass annotatedInstance = new AnnotatedClass(null);
