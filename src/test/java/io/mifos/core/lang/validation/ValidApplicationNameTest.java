@@ -43,6 +43,13 @@ public class ValidApplicationNameTest {
     Assert.assertFalse(isValid(annotatedInstance));
   }
 
+  @Test
+  public void nullAppplicationName()
+  {
+    final AnnotatedClass annotatedInstance = new AnnotatedClass(null);
+    Assert.assertFalse(isValid(annotatedInstance));
+  }
+
   private boolean isValid(final AnnotatedClass annotatedInstance)
   {
 

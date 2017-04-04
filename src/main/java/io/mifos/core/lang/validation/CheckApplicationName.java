@@ -29,6 +29,9 @@ public class CheckApplicationName implements ConstraintValidator<ValidApplicatio
    }
 
    public boolean isValid(final String obj, final ConstraintValidatorContext context) {
+      if (obj == null)
+         return false;
+
       try {
          ApplicationName.fromSpringApplicationName(obj);
          return true;
