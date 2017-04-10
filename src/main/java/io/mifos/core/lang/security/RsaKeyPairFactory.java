@@ -15,6 +15,8 @@
  */
 package io.mifos.core.lang.security;
 
+import io.mifos.core.lang.DateConverter;
+
 import java.math.BigInteger;
 import java.security.KeyFactory;
 import java.security.KeyPair;
@@ -25,6 +27,8 @@ import java.security.interfaces.RSAPublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.RSAPrivateKeySpec;
 import java.security.spec.RSAPublicKeySpec;
+import java.time.Clock;
+import java.time.LocalDateTime;
 
 @SuppressWarnings({"WeakerAccess", "unused"})
 public final class RsaKeyPairFactory {
@@ -45,25 +49,30 @@ public final class RsaKeyPairFactory {
       final RSAPrivateKeySpec rsaPrivateKeySpec =
           keyFactory.getKeySpec(keyPair.getPrivate(), RSAPrivateKeySpec.class);
 
+      final String timestamp = DateConverter.toIsoString(LocalDateTime.now(Clock.systemUTC()));
+      final String timestampWithoutNanos = timestamp.substring(0, timestamp.indexOf("."));
+      final String urlSafeTimeStamp = timestampWithoutNanos.replace(':', '_');
       final RSAPublicKey publicKey = (RSAPublicKey) keyFactory.generatePublic(rsaPublicKeySpec);
       final RSAPrivateKey privateKey = (RSAPrivateKey) keyFactory.generatePrivate(rsaPrivateKeySpec);
 
-      return new KeyPairHolder(publicKey, privateKey);
+      return new KeyPairHolder(urlSafeTimeStamp, publicKey, privateKey);
     } catch (final NoSuchAlgorithmException | InvalidKeySpecException e) {
       throw new IllegalStateException("RSA problem.");
     }
   }
 
   public static class KeyPairHolder {
-
+    private final String timestamp;
     private final RSAPublicKey publicKey;
     private final RSAPrivateKey privateKey;
 
-    public KeyPairHolder(final RSAPublicKey publicKey, final RSAPrivateKey privateKey) {
+    public KeyPairHolder(final String timestamp, final RSAPublicKey publicKey, final RSAPrivateKey privateKey) {
       super();
+      this.timestamp = timestamp;
       this.publicKey = publicKey;
       this.privateKey = privateKey;
     }
+
 
     public RSAPublicKey publicKey() {
       return publicKey;
@@ -71,6 +80,10 @@ public final class RsaKeyPairFactory {
 
     public RSAPrivateKey privateKey() {
       return privateKey;
+    }
+
+    public String getTimestamp() {
+      return timestamp;
     }
 
     public BigInteger getPublicKeyMod() {
