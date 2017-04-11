@@ -38,6 +38,13 @@ public class DateConverterTest {
   }
 
   @Test
+  public void dateFromIsoString() throws Exception {
+    final LocalDate date = DateConverter.dateFromIsoString("2017-07-13Z");
+    final String isoString = DateConverter.toIsoString(date);
+    Assert.assertEquals("2017-07-13Z", isoString);
+  }
+
+  @Test
   public void localDateTimeToIsoString() throws Exception {
     final LocalDateTime localDateTime = LocalDateTime.ofInstant(momentInTime, ZoneId.of("UTC"));
     final String isoString = DateConverter.toIsoString(localDateTime);

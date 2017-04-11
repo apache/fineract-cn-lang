@@ -49,16 +49,20 @@ public final class RsaKeyPairFactory {
       final RSAPrivateKeySpec rsaPrivateKeySpec =
           keyFactory.getKeySpec(keyPair.getPrivate(), RSAPrivateKeySpec.class);
 
-      final String timestamp = DateConverter.toIsoString(LocalDateTime.now(Clock.systemUTC()));
-      final String timestampWithoutNanos = timestamp.substring(0, timestamp.indexOf("."));
-      final String urlSafeTimeStamp = timestampWithoutNanos.replace(':', '_');
+      final String keyTimestamp = createKeyTimestampNow();
       final RSAPublicKey publicKey = (RSAPublicKey) keyFactory.generatePublic(rsaPublicKeySpec);
       final RSAPrivateKey privateKey = (RSAPrivateKey) keyFactory.generatePrivate(rsaPrivateKeySpec);
 
-      return new KeyPairHolder(urlSafeTimeStamp, publicKey, privateKey);
+      return new KeyPairHolder(keyTimestamp, publicKey, privateKey);
     } catch (final NoSuchAlgorithmException | InvalidKeySpecException e) {
       throw new IllegalStateException("RSA problem.");
     }
+  }
+
+  private static String createKeyTimestampNow() {
+    final String timestamp = DateConverter.toIsoString(LocalDateTime.now(Clock.systemUTC()));
+    final String timestampWithoutNanos = timestamp.substring(0, timestamp.indexOf("."));
+    return timestampWithoutNanos.replace(':', '_');
   }
 
   public static class KeyPairHolder {
