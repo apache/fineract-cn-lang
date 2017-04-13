@@ -28,6 +28,7 @@ public class RsaKeyPairFactoryTest {
   public void shouldCreateRsaKeys() throws Exception {
     final RsaKeyPairFactory.KeyPairHolder keyPairHolder = RsaKeyPairFactory.createKeyPair();
     Assert.assertNotNull(keyPairHolder);
+    Assert.assertNotNull(keyPairHolder.getTimestamp());
     Assert.assertNotNull(keyPairHolder.publicKey());
     Assert.assertNotNull(keyPairHolder.privateKey());
   }

@@ -22,56 +22,58 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
-@SuppressWarnings({"unused", "WeakerAccess"})
-public final class DateConverter {
-
-  private DateConverter() {
-    super();
-  }
-
+public interface DateConverter {
   @Nonnull
-  public static Long toEpochMillis(@Nonnull final LocalDateTime localDateTime) {
+  static Long toEpochMillis(@Nonnull final LocalDateTime localDateTime) {
     Assert.notNull(localDateTime, "LocalDateTime must be given.");
     return localDateTime.toInstant(ZoneOffset.UTC).toEpochMilli();
   }
 
   @Nonnull
-  public static Long toEpochDay(@Nonnull final LocalDate localDate) {
+  static Long toEpochDay(@Nonnull final LocalDate localDate) {
     Assert.notNull(localDate, "LocalDate must be given.");
     return localDate.toEpochDay();
   }
 
   @Nonnull
-  public static LocalDateTime fromEpochMillis(@Nonnull final Long epochMillis) {
+  static LocalDateTime fromEpochMillis(@Nonnull final Long epochMillis) {
     Assert.notNull(epochMillis, "Epoch milliseconds must be given.");
     return LocalDateTime.from(Instant.ofEpochMilli(epochMillis).atZone(ZoneOffset.UTC));
   }
 
   @Nonnull
-  public static String toIsoString(@Nonnull final Date date) {
+  static String toIsoString(@Nonnull final Date date) {
     return toIsoString(LocalDateTime.ofInstant(date.toInstant(), ZoneId.of("UTC")));
   }
 
   @Nonnull
-  public static String toIsoString(@Nonnull final LocalDateTime localDateTime) {
+  static String toIsoString(@Nonnull final LocalDateTime localDateTime) {
     Assert.notNull(localDateTime, "LocalDateTime must be given.");
     return localDateTime.format(DateTimeFormatter.ISO_DATE_TIME) + "Z";
   }
 
   @Nonnull
-  public static LocalDateTime fromIsoString(@Nonnull final String isoDateTimeString) {
+  static LocalDateTime fromIsoString(@Nonnull final String isoDateTimeString) {
     Assert.notNull(isoDateTimeString, "ISO date time must be given.");
     return LocalDateTime.from(Instant.parse(isoDateTimeString).atZone(ZoneOffset.UTC));
   }
 
   @Nonnull
-  public static String toIsoString(@Nonnull final LocalDate localDate) {
+  static LocalDate dateFromIsoString(@Nonnull final String isoDateString) {
+    Assert.notNull(isoDateString, "ISO date time must be given.");
+    final int zIndex = isoDateString.indexOf("Z");
+    final String shortenedString = isoDateString.substring(0, zIndex);
+    return LocalDate.from(DateTimeFormatter.ISO_LOCAL_DATE.parse(shortenedString));
+  }
+
+  @Nonnull
+  static String toIsoString(@Nonnull final LocalDate localDate) {
     Assert.notNull(localDate, "LocalDateTime must be given.");
     return localDate.format(DateTimeFormatter.ISO_DATE) + "Z";
   }
 
   @Nonnull
-  public static LocalDate toLocalDate(@Nonnull final LocalDateTime localDateTime) {
+  static LocalDate toLocalDate(@Nonnull final LocalDateTime localDateTime) {
     Assert.notNull(localDateTime, "LocalDateTime must be given.");
     return localDateTime.toLocalDate();
   }
