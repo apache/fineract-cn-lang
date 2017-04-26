@@ -30,6 +30,34 @@ import java.util.Set;
  */
 public class ValidIdentifierTest {
   @Test
+  public void validIdentifierWithTilda()
+  {
+    final AnnotatedClass annotatedInstance = new AnnotatedClass("xy~mn");
+    Assert.assertFalse(isValid(annotatedInstance));
+  }
+
+  @Test
+  public void validIdentifierWithUnderscore()
+  {
+    final AnnotatedClass annotatedInstance = new AnnotatedClass("xy_mn");
+    Assert.assertTrue(isValid(annotatedInstance));
+  }
+
+  @Test
+  public void validIdentifierWithDot()
+  {
+    final AnnotatedClass annotatedInstance = new AnnotatedClass("xy.mn");
+    Assert.assertTrue(isValid(annotatedInstance));
+  }
+
+  @Test
+  public void validIdentifierWithDash()
+  {
+    final AnnotatedClass annotatedInstance = new AnnotatedClass("xy-mn");
+    Assert.assertTrue(isValid(annotatedInstance));
+  }
+
+  @Test
   public void validIdentifier()
   {
     final AnnotatedClass annotatedInstance = new AnnotatedClass("xxxx");
