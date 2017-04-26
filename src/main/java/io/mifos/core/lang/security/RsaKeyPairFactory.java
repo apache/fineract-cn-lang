@@ -61,7 +61,14 @@ public final class RsaKeyPairFactory {
 
   private static String createKeyTimestampNow() {
     final String timestamp = DateConverter.toIsoString(LocalDateTime.now(Clock.systemUTC()));
-    final String timestampWithoutNanos = timestamp.substring(0, timestamp.indexOf("."));
+    final int index = timestamp.indexOf(".");
+    final String timestampWithoutNanos;
+    if (index > 0) {
+      timestampWithoutNanos = timestamp.substring(0, index);
+    }
+    else {
+      timestampWithoutNanos = timestamp;
+    }
     return timestampWithoutNanos.replace(':', '_');
   }
 
