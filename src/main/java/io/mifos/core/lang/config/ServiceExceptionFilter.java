@@ -40,7 +40,7 @@ final class ServiceExceptionFilter extends OncePerRequestFilter {
     try {
       filterChain.doFilter(request, response);
     } catch (final NestedServletException ex) {
-      if (ex.getCause().getClass().isAssignableFrom(ServiceException.class)) {
+      if (ServiceException.class.isAssignableFrom(ex.getCause().getClass())) {
         @SuppressWarnings("ThrowableResultOfMethodCallIgnored") final ServiceException serviceException = ServiceException.class.cast(ex.getCause());
         final ServiceError serviceError = serviceException.serviceError();
         logger.info("Responding with a service error " + serviceError);
