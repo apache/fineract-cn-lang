@@ -46,6 +46,7 @@ final class ServiceExceptionFilter extends OncePerRequestFilter {
         logger.info("Responding with a service error " + serviceError);
         response.sendError(serviceError.getCode(), serviceError.getMessage());
       } else {
+        logger.info("Unexpected exception caught {}.", ex);
         throw ex;
       }
     }
