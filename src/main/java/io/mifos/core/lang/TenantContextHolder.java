@@ -34,7 +34,9 @@ public final class TenantContextHolder {
   }
 
   @SuppressWarnings("WeakerAccess")
-  public static String checkedGetIdentifier() { return identifier().orElseThrow(IllegalStateException::new);}
+  public static String checkedGetIdentifier() {
+    return identifier().orElseThrow(() -> new IllegalStateException("Tenant context not set."));
+  }
 
   public static void setIdentifier(@Nonnull final String identifier) {
     Assert.notNull(identifier, "A tenant identifier must be given.");
