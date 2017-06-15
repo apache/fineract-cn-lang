@@ -19,11 +19,7 @@ import io.mifos.core.lang.validation.constraints.ValidIdentifier;
 import org.junit.Assert;
 import org.junit.Test;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
-import java.util.Set;
+import static io.mifos.core.lang.validation.TestHelper.isValid;
 
 /**
  * @author Myrle Krantz
@@ -97,15 +93,6 @@ public class ValidIdentifierTest {
   {
     final AnnotatedClass annotatedInstance = new AnnotatedClass("x/y/z");
     Assert.assertFalse(isValid(annotatedInstance));
-  }
-
-  private boolean isValid(final AnnotatedClass annotatedInstance)
-  {
-    final ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-    final Validator validator = factory.getValidator();
-    final Set<ConstraintViolation<AnnotatedClass>> errors = validator.validate(annotatedInstance);
-
-    return errors.size() == 0;
   }
 
   private static class AnnotatedClass {

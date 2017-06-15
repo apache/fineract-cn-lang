@@ -39,6 +39,10 @@ public class CheckIdentifier implements ConstraintValidator<ValidIdentifier, Str
       if (obj == null)
          return optional;
 
+      return validate(obj, maximumLength);
+   }
+
+   static boolean validate(final String obj, final int maximumLength) {
       if (obj.length() < 2)
          return false;
 
@@ -53,7 +57,7 @@ public class CheckIdentifier implements ConstraintValidator<ValidIdentifier, Str
       }
    }
 
-   private String encode(String identifier) throws UnsupportedEncodingException {
+   static private String encode(String identifier) throws UnsupportedEncodingException {
       return URLEncoder.encode(identifier, "UTF-8");
    }
 }
