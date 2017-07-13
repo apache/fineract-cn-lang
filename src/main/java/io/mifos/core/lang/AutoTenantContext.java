@@ -15,8 +15,6 @@
  */
 package io.mifos.core.lang;
 
-import io.mifos.core.lang.TenantContextHolder;
-
 import java.util.Optional;
 
 /**

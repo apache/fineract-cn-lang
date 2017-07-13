@@ -21,7 +21,6 @@ import io.mifos.core.lang.validation.constraints.ValidLocalDateTimeString;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.time.DateTimeException;
-import java.time.format.DateTimeParseException;
 
 /**
  * @author Myrle Krantz

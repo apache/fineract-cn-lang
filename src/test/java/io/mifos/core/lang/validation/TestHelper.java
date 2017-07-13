@@ -24,7 +24,7 @@ import java.util.Set;
 /**
  * @author Myrle Krantz
  */
-public class TestHelper {
+class TestHelper {
 
   static <T> boolean isValid(final T annotatedInstance)
   {
