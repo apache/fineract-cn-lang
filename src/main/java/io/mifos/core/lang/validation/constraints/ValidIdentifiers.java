@@ -15,7 +15,6 @@
  */
 package io.mifos.core.lang.validation.constraints;
 
-import io.mifos.core.lang.validation.CheckIdentifier;
 import io.mifos.core.lang.validation.CheckIdentifiers;
 
 import javax.validation.Constraint;
