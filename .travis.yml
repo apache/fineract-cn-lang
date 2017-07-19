@@ -1,4 +1,5 @@
 // .travis.yml
 language: java
+
 jdk:
-- oraclejdk8
+ - oraclejdk8
