@@ -43,4 +43,5 @@ public @interface ValidIdentifiers {
   Class<? extends Payload>[] payload() default { };
 
   int maxLength() default 32;
+  boolean optional() default false;
 }
