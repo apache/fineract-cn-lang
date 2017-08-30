@@ -32,7 +32,7 @@ ext {
 }
 
 group 'io.mifos.core'
-version "0.1.0"
+version '0.1.0-BUILD-SNAPSHOT'
 
 tasks.withType(JavaCompile) {
     sourceCompatibility = JavaVersion.VERSION_1_8
