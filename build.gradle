@@ -31,7 +31,7 @@ ext {
     changesetId = grgit.head().id
 }
 
-group 'io.mifos.core'
+group 'org.apache.fineract.cn'
 version '0.1.0-BUILD-SNAPSHOT'
 
 tasks.withType(JavaCompile) {
