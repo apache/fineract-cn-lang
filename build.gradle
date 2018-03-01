@@ -80,6 +80,7 @@ publishing {
 
 license {
     header rootProject.file('HEADER')
+    strictCheck true
     mapping {
         java = 'SLASHSTAR_STYLE'
     }
