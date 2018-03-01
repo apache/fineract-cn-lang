@@ -15,7 +15,7 @@
  */
 package org.apache.fineract.cn.core.lang.validation.constraints;
 
-import io.mifos.core.lang.validation.CheckIdentifiers;
+import org.apache.fineract.cn.core.lang.validation.CheckIdentifiers;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

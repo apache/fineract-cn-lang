@@ -15,8 +15,8 @@
  */
 package org.apache.fineract.cn.core.lang.config;
 
-import io.mifos.core.lang.ServiceError;
-import io.mifos.core.lang.ServiceException;
+import org.apache.fineract.cn.core.lang.ServiceError;
+import org.apache.fineract.cn.core.lang.ServiceException;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.util.NestedServletException;
 

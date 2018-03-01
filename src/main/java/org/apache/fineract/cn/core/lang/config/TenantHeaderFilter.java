@@ -15,7 +15,6 @@
  */
 package org.apache.fineract.cn.core.lang.config;
 
-import io.mifos.core.lang.TenantContextHolder;
 import org.apache.fineract.cn.core.lang.TenantContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 

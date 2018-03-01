@@ -15,7 +15,7 @@
  */
 package org.apache.fineract.cn.core.lang.security;
 
-import io.mifos.core.lang.DateConverter;
+import org.apache.fineract.cn.core.lang.DateConverter;
 
 import java.math.BigInteger;
 import java.security.KeyFactory;

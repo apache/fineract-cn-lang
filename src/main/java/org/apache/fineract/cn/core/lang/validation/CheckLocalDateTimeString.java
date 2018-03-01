@@ -15,8 +15,6 @@
  */
 package org.apache.fineract.cn.core.lang.validation;
 
-import io.mifos.core.lang.DateConverter;
-import io.mifos.core.lang.validation.constraints.ValidLocalDateTimeString;
 import org.apache.fineract.cn.core.lang.DateConverter;
 import org.apache.fineract.cn.core.lang.validation.constraints.ValidLocalDateTimeString;
 

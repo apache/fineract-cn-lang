@@ -15,7 +15,6 @@
  */
 package org.apache.fineract.cn.core.lang.validation.constraints;
 
-import io.mifos.core.lang.validation.CheckApplicationName;
 import org.apache.fineract.cn.core.lang.validation.CheckApplicationName;
 
 import javax.validation.Constraint;

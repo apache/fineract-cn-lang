@@ -15,7 +15,7 @@
  */
 package org.apache.fineract.cn.core.lang.config;
 
-import io.mifos.core.lang.ApplicationName;
+import org.apache.fineract.cn.core.lang.ApplicationName;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

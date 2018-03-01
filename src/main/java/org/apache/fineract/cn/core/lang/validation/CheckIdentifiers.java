@@ -15,7 +15,6 @@
  */
 package org.apache.fineract.cn.core.lang.validation;
 
-import io.mifos.core.lang.validation.constraints.ValidIdentifiers;
 import org.apache.fineract.cn.core.lang.validation.constraints.ValidIdentifiers;
 
 import javax.validation.ConstraintValidator;
