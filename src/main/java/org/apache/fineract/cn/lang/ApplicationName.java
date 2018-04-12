@@ -45,7 +45,7 @@ public class ApplicationName {
 
   static ApplicationName parse(final String springApplicationNameString) {
     if (springApplicationNameString.length() > 64) {
-      throw new IllegalArgumentException("Spring application name strings for mifos io applications should be 64 characters or less.");
+      throw new IllegalArgumentException("Spring application name strings for Apache Fineract CN applications should be 64 characters or less.");
     }
 
     final Pattern applicationNamePattern = Pattern.compile(
@@ -54,7 +54,7 @@ public class ApplicationName {
     final Matcher applicationNameMatcher = applicationNamePattern.matcher(springApplicationNameString);
     if (!applicationNameMatcher.matches()) {
       throw new IllegalArgumentException(
-          "This is not a spring application name string for a mifos io application: "
+          "This is not a spring application name string for an Apache Fineract CN application: "
               + springApplicationNameString);
     }
     String versionString = applicationNameMatcher.group("version");
