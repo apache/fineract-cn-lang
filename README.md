@@ -1,4 +1,4 @@
-# Apache Fineract CN Lang
+# Apache Fineract CN Lang [![Build Status](https://api.travis-ci.com/apache/fineract-cn-lang.svg?branch=develop)](https://travis-ci.com/apache/fineract-cn-lang)
 
 ## Abstract
 Apache Fineract CN is an application framework for digital financial services, a system to support nationwide and cross-national financial transactions and help to level and speed the creation of an inclusive, interconnected digital economy for every nation in the world.

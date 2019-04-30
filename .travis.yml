@@ -16,7 +16,15 @@
 # specific language governing permissions and limitations
 # under the License.
 #
-
 language: java
+sudo: false
 jdk:
- - oraclejdk8
+- openjdk8
+install: true
+script: "./travis.sh"
+env:
+  global:
+    - BUILD_SNAPSHOTS_BRANCH=develop
+    - ARTIFACTORY_URL=https://mifos.jfrog.io/mifos
+    - ARTIFACTORY_USER=travis-ci
+    - secure: "VIf6ZOTsrQQnbWgXLK0bdsWkGxTeAcpUgZZ7vsCZYMVbSh2oK03UgLjGkuokP6KODoOubQhFSjRMr0ncypzFr2d/O00oXamJQ587BzCcHRIjI1YgQUpVkj4ZRsvP7d0YEr+fKift/H46Bk7lQl1L+gswtyR/mB2FcZqhjOUs9+6raM4EpBS+E3ImQ20UotsBldqqoYMafgbhqmT+8qqlv+GcRSeMIw0+5uFSCdEhMYOVqb/dbQubLXVAFVGmVNyswNKu//j0nRUE291xLru9hG6iNoqCvlKfgvO4R9Lq1sc0zrV/ZoTznVxUdUg+4/EYMnb2Xq9pDYqxtVPgvf3o8qqGpFwerlQKKjU+I6BSc6BM2+t1IorooXCp2753bU48eeHVzDtygq+GVClsTvUnQud1L2gWkbefQjxWrOtO4qHtX9O06HgL6o0ZDRXDkpJD7ToUpTC/wN1c/HyyLdVUOp1dMV06D2tvch99zXz5FqzItKXPdWRlYgGuKEsjZXV8LIlfG0WAwbZu5P9s9liVXoyUOxL87+HZv6hsMPHI1i5o2rk4KqFLPeHN+7Bjz0oVv/MR924+JkysQjs3JayfcjIfnVth+UtRbc1FLztnKeiJGimGGMhN+GIW1aEFNBy9tobE55PZ7kjZFR+fgvuFUDo2KLAVhMYkwsWgSE5aGao="
