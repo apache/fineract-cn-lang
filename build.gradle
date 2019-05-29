@@ -122,5 +122,5 @@ license {
 rat {
     // List of exclude directives, defaults to ['**/.gradle/**']
     excludes = [ ".idea/**", ".gradle/**", "gradle/**", "build/**", "gradlew", "gradlew.bat", "README.md" ]
-
+    plainOutput = true
 }
