@@ -41,11 +41,22 @@ public final class RsaKeyPairFactory {
 
   public static void main(String[] args) {
     KeyPairHolder keyPair = RsaKeyPairFactory.createKeyPair();
-    System.out.println("system.publicKey.exponent=" + keyPair.getPublicKeyExp());
-    System.out.println("system.publicKey.modulus=" + keyPair.getPublicKeyMod());
-    System.out.println("system.publicKey.timestamp=" + keyPair.getTimestamp());
-    System.out.println("system.privateKey.modulus=" + keyPair.getPrivateKeyMod());
-    System.out.println("system.privateKey.exponent=" + keyPair.getPrivateKeyExp());
+
+    String style = (args != null && args.length > 0) ?args[0] :"";
+    if ("SPRING".equalsIgnoreCase(style)) {
+      System.out.println("system.publicKey.exponent=" + keyPair.getPublicKeyExp());
+      System.out.println("system.publicKey.modulus=" + keyPair.getPublicKeyMod());
+      System.out.println("system.publicKey.timestamp=" + keyPair.getTimestamp());
+      System.out.println("system.privateKey.modulus=" + keyPair.getPrivateKeyMod());
+      System.out.println("system.privateKey.exponent=" + keyPair.getPrivateKeyExp());
+    }
+    else if ("UNIX".equalsIgnoreCase(style)) {
+      System.out.println("PUBLIC_KEY_EXPONENT=" + keyPair.getPublicKeyExp());
+      System.out.println("PUBLIC_KEY_MODULUS=" + keyPair.getPublicKeyMod());
+      System.out.println("PUBLIC_KEY_TIMESTAMP=" + keyPair.getTimestamp());
+      System.out.println("PRIVATE_KEY_MODULUS=" + keyPair.getPrivateKeyMod());
+      System.out.println("PRIVATE_KEY_EXPONENT=" + keyPair.getPrivateKeyExp());
+    }
   }
 
   public static KeyPairHolder createKeyPair() {
