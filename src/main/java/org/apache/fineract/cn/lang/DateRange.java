@@ -40,8 +40,6 @@ public class DateRange {
   private final @Nonnull LocalDate end;
 
   public DateRange(final @Nonnull LocalDate start, final @Nonnull LocalDate end) {
-    Assert.notNull(start, "Range start must be given.");
-    Assert.notNull(start, "Range end must be given.");
     this.start = start;
     this.end = end;
   }

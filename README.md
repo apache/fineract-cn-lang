@@ -27,6 +27,6 @@ See [LICENSE](LICENSE) file.
 
 ### Generate and print RSA keys
 
-You can use this library to generate and print RSA keys. You need to add path to spring-core (see second -cp parameter in the following example).
+You can use this library to generate and print RSA keys:
 
-`java -cp lang-0.1.0-BUILD-SNAPSHOT.jar:spring-core-4.3.3.RELEASE.jar  org.apache.fineract.cn.lang.security.RsaKeyPairFactory`
+`java -cp build/libs/lang-0.1.0-BUILD-SNAPSHOT.jar  org.apache.fineract.cn.lang.security.RsaKeyPairFactory`
