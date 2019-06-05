@@ -36,4 +36,10 @@ public class RsaKeyPairFactoryTest {
     Assert.assertNotNull(keyPairHolder.publicKey());
     Assert.assertNotNull(keyPairHolder.privateKey());
   }
+
+  @Test
+  public void shouldHaveMainMethod() throws Exception {
+    RsaKeyPairFactory.main(new String[]{});
+  }
+
 }

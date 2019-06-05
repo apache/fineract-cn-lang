@@ -39,6 +39,15 @@ public final class RsaKeyPairFactory {
   private RsaKeyPairFactory() {
   }
 
+  public static void main(String[] args) {
+    KeyPairHolder keyPair = RsaKeyPairFactory.createKeyPair();
+    System.out.println("system.publicKey.exponent=" + keyPair.getPublicKeyExp());
+    System.out.println("system.publicKey.modulus=" + keyPair.getPublicKeyMod());
+    System.out.println("system.publicKey.timestamp=" + keyPair.getTimestamp());
+    System.out.println("system.privateKey.modulus=" + keyPair.getPrivateKeyMod());
+    System.out.println("system.privateKey.exponent=" + keyPair.getPrivateKeyExp());
+  }
+
   public static KeyPairHolder createKeyPair() {
     try {
       final KeyFactory keyFactory = KeyFactory.getInstance("RSA");
