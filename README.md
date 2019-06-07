@@ -22,3 +22,20 @@ The versioning layout is {MAJOR}.{MINOR}.{PATCH}-{INDICATOR}[.{PATCH}]. Only mil
 
 ## License
 See [LICENSE](LICENSE) file.
+
+## Usage
+
+### Generate and print RSA keys
+
+You can use this library to generate and print RSA keys.
+
+You can either generate application-<env>.properties file for Spring applications like this:
+
+`java -cp build/libs/lang-0.1.0-BUILD-SNAPSHOT.jar  org.apache.fineract.cn.lang.security.RsaKeyPairFactory SPRING > application-dev.properties`
+
+Or you can generate them and import as operation system variables (Unix):
+```
+java -cp build/libs/lang-0.1.0-BUILD-SNAPSHOT.jar  org.apache.fineract.cn.lang.security.RsaKeyPairFactory UNIX > env.vars.txt
+source env.vars.txt
+echo $PUBLIC_KEY_TIMESTAMP
+```

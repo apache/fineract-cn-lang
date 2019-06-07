@@ -42,7 +42,6 @@ public final class TenantContextHolder {
   }
 
   public static void setIdentifier(@Nonnull final String identifier) {
-    Assert.notNull(identifier, "A tenant identifier must be given.");
     Assert.hasLength(identifier, "A tenant identifier must have at least one character.");
     Assert.isNull(TenantContextHolder.THREAD_LOCAL.get(), "Tenant identifier already set.");
     TenantContextHolder.THREAD_LOCAL.set(identifier);
