@@ -48,7 +48,7 @@ ext {
 }
 
 group 'org.apache.fineract.cn'
-version 'spring_boot_2'
+version 'spring_boot_2-SNAPSHOT'
 
 tasks.withType(JavaCompile) {
     sourceCompatibility = JavaVersion.VERSION_1_8
