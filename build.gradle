@@ -55,10 +55,9 @@ dependencyManagement {
 }
 
 dependencies {
-    api(
-            'com.google.code.findbugs:jsr305:versions.findbugs',
-            'org.springframework.boot:spring-boot-starter-web',
-    )
+    api "com.google.code.findbugs:jsr305:$versions.findbugs",
+            'org.springframework.boot:spring-boot-starter-web'
+
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
