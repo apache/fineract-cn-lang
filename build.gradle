@@ -21,7 +21,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'nl.javadude.gradle.plugins:license-gradle-plugin:0.14.0'
+        classpath 'nl.javadude.gradle.plugins:license-gradle-plugin:0.11.0'
         classpath ("org.ajoberstar:grgit:2.0.0")
     }
 }
@@ -75,7 +75,8 @@ dependencies {
     )
 
     testCompile(
-            [group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: versions.springboot]
+            [group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: versions.springboot],
+            [group: 'junit', name: 'junit']
     )
 }
 
@@ -120,6 +121,6 @@ license {
 
 rat {
     // List of exclude directives, defaults to ['**/.gradle/**']
-    excludes = [ ".idea/**", ".gradle/**", "gradle/**", "build/**", "gradlew", "gradlew.bat", "README.md" ]
-    plainOutput = true
+    excludes = [ ".idea/**", ".gradle/**", "gradle/**", "build/**", "gradlew", "gradlew.bat", "README.md", ".settings/**", ".project" ]
+    //plainOutput = true
 }
